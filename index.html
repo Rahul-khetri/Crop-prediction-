@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🌱 Predict Best Crop Based on Weather</h2>
+    <form method="POST" action="/predict" class="card p-4 shadow">
+        <div class="row g-3">
+            {% for label in ['Nitrogen', 'Phosphorus', 'Potassium', 'Temperature', 'Humidity', 'pH', 'Rainfall'] %}
+            <div class="col-md-6">
+                <label>{{ label }}</label>
+                <input type="number" step="any" name="{{ label }}" class="form-control" required>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">Predict Crop</button>
+        </div>
+    </form>
+</div>
+</body>
+</html> 
